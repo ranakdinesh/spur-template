@@ -32,6 +32,9 @@ func New(ctx context.Context) (*App, error) {
 		return nil, err
 	}
 
+	// SPUR:MODULES
+	// SPUR:MODULES:END
+
 	infra.HTTP.Mount(func(r chi.Router) {
 		r.Get("/healthz", func(w http.ResponseWriter, r *http.Request) {
 			w.Header().Set("Content-Type", "application/json")
