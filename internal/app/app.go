@@ -9,6 +9,7 @@ import (
 	"github.com/spurbase/spur/internal/config"
 	"github.com/spurbase/spur/internal/infrastructure"
 	"github.com/spurbase/spur/internal/logger"
+	// SPUR:IMPORTS:END
 )
 
 type App struct {
