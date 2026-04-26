@@ -1,0 +1,63 @@
+package views
+
+import "github.com/ranakdinesh/citual/internal/modules/leadcrm/core/ports"
+
+templ Reports(funnel []ports.FunnelStat, sources []ports.SourceStat) {
+	@Layout("CRM Reports") {
+		<h1 class="text-2xl font-bold mb-4">Lead Performance Reports</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="text-xl font-semibold mb-2">Funnel Breakdown</h2>
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-2 border">Stage</th>
+                            <th class="p-2 border">Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        for _, item := range funnel {
+                            <tr>
+                                <td class="p-2 border">{ item.Stage }</td>
+                                <td class="p-2 border text-right">{ toString(item.Count) }</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="text-xl font-semibold mb-2">Source Performance</h2>
+                 <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-2 border">Source</th>
+                            <th class="p-2 border">Leads</th>
+                            <th class="p-2 border">Avg Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        for _, item := range sources {
+                            <tr>
+                                <td class="p-2 border">{ item.Source }</td>
+                                <td class="p-2 border text-right">{ toString(item.TotalLeads) }</td>
+                                <td class="p-2 border text-right">{ toFloatString(item.AvgScore) }</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+	}
+}
+
+func toString(i int64) string {
+    // Basic int to string
+    // In real app use strconv or helper
+    return "StubInt" 
+}
+
+func toFloatString(f float64) string {
+    return "StubFloat"
+}

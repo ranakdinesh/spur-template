@@ -1,0 +1,18 @@
+package views
+
+import "github.com/ranakdinesh/citual/internal/modules/leadcrm/core/domain"
+
+templ WebformEmbed(form *domain.LeadForm) {
+    <form action={ templ.SafeURL("/ingest/webform/" + form.Slug) } method="POST">
+        for _, field := range form.Schema.Fields {
+            <label>
+                { field.Label }
+                <input type={ field.Type } name={ field.Key } required?={ field.Required } />
+            </label>
+        }
+        if form.Settings.HoneypotField != "" {
+            <input type="text" name={ form.Settings.HoneypotField } style="display:none" tabindex="-1" autocomplete="off" />
+        }
+        <button type="submit">Submit</button>
+    </form>
+}
