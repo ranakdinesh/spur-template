@@ -22,7 +22,7 @@ func main() {
 
 	// 2. Setup Graceful Shutdown
 	// We listen for interrupt signals to cancel the context
-	
+
 	defer cancel()
 
 	go func() {
