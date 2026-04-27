@@ -6,9 +6,9 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/spurbase/spur/internal/config"
-	"github.com/spurbase/spur/internal/infrastructure"
-	"github.com/spurbase/spur/internal/logger"
+	"github.com/ranakdinesh/spur/internal/config"
+	"github.com/ranakdinesh/spur/internal/infrastructure"
+	"github.com/ranakdinesh/spur/internal/logger"
 	// SPUR:IMPORTS:END
 )
 

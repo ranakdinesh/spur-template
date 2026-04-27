@@ -1,7 +1,7 @@
 package sse
 
 import (
-	"github.com/spurbase/spur/internal/logger"
+	"github.com/ranakdinesh/spur/internal/logger"
 )
 
 type Broker struct {

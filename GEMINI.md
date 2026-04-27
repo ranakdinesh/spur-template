@@ -7,7 +7,7 @@
 ## 1. PROJECT IDENTITY
 
 **Name:** Spur (formerly citual)
-**Go module:** github.com/spurbase/spur
+**Go module:** github.com/ranakdinesh/spur
 **Purpose:** Composable Go backend platform — build once, reuse across projects.
 
 ---
@@ -128,7 +128,7 @@ opt.Log.Error(ctx).Err(err).Str("module", "mymodule").Msg("what failed")
 
 ### Metrics
 ```go
-import "github.com/spurbase/spur/internal/platform/metrics"
+import "github.com/ranakdinesh/spur/internal/platform/metrics"
 defer metrics.TrackDBQuery("ListJobsByTenant", "mymodule", time.Now())
 metrics.ModuleErrorsTotal.WithLabelValues("mymodule", "db_error").Inc()
 metrics.RecordAuthAttempt("password", "success")  // identity only

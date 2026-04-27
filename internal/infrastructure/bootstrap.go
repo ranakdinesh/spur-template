@@ -6,17 +6,17 @@ import (
 
 	"github.com/jackc/pgx/v5/pgxpool"
 	goredis "github.com/redis/go-redis/v9"
-	"github.com/spurbase/spur/internal/config"
-	"github.com/spurbase/spur/internal/infrastructure/db"
-	"github.com/spurbase/spur/internal/infrastructure/grpc"
-	"github.com/spurbase/spur/internal/infrastructure/hls"
-	httpinfra "github.com/spurbase/spur/internal/infrastructure/http"
-	"github.com/spurbase/spur/internal/infrastructure/redis"
-	"github.com/spurbase/spur/internal/infrastructure/rtmp"
-	"github.com/spurbase/spur/internal/infrastructure/sse"
-	"github.com/spurbase/spur/internal/infrastructure/temporal"
-	"github.com/spurbase/spur/internal/infrastructure/websocket"
-	"github.com/spurbase/spur/internal/logger"
+	"github.com/ranakdinesh/spur/internal/config"
+	"github.com/ranakdinesh/spur/internal/infrastructure/db"
+	"github.com/ranakdinesh/spur/internal/infrastructure/grpc"
+	"github.com/ranakdinesh/spur/internal/infrastructure/hls"
+	httpinfra "github.com/ranakdinesh/spur/internal/infrastructure/http"
+	"github.com/ranakdinesh/spur/internal/infrastructure/redis"
+	"github.com/ranakdinesh/spur/internal/infrastructure/rtmp"
+	"github.com/ranakdinesh/spur/internal/infrastructure/sse"
+	"github.com/ranakdinesh/spur/internal/infrastructure/temporal"
+	"github.com/ranakdinesh/spur/internal/infrastructure/websocket"
+	"github.com/ranakdinesh/spur/internal/logger"
 )
 
 type Infra struct {

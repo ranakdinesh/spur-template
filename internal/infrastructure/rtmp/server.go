@@ -3,7 +3,7 @@ package rtmp
 import (
 	"context"
 
-	"github.com/spurbase/spur/internal/logger"
+	"github.com/ranakdinesh/spur/internal/logger"
 )
 
 type Server struct {

@@ -1,4 +1,4 @@
-module github.com/spurbase/spur
+module github.com/ranakdinesh/spur
 
 go 1.25.1
 

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/spurbase/spur/internal/logger"
+	"github.com/ranakdinesh/spur/internal/logger"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
