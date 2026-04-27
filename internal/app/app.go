@@ -14,8 +14,8 @@ import (
 
 type App struct {
 	Infra *infrastructure.Infra
-	// SPUR:APP_FIELDS
-	// SPUR:APP_FIELDS:END
+	// SPUR:APP_VALUES
+	// SPUR:APP_VALUES:END
 }
 
 func New(ctx context.Context) (*App, error) {
