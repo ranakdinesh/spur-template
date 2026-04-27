@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 	"sync"
-	// "github.com/ranakdinesh/spur/internal/logger"
+	// "github.com/ranakdinesh/spur-template/internal/logger"
 )
 
 // PermissionResolver defines how we fetch permissions from the DB (if not in cache)

@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	//	"github.com/ranakdinesh/spur/internal/adapters/db"
-	//	"github.com/ranakdinesh/spur/internal/adapters/db/sqlc"
+	//	"github.com/ranakdinesh/spur-template/internal/adapters/db"
+	//	"github.com/ranakdinesh/spur-template/internal/adapters/db/sqlc"
 	"github.com/rs/zerolog"
 )
 

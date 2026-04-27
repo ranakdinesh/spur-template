@@ -1,4 +1,4 @@
-module github.com/ranakdinesh/spur
+module github.com/ranakdinesh/spur-template
 
 go 1.25.1
 

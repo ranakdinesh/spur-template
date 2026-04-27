@@ -8,7 +8,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
-	"github.com/ranakdinesh/spur/internal/logger"
+	"github.com/ranakdinesh/spur-template/internal/logger"
 )
 
 // MountFunc lets parent apps add multiple routes at once.

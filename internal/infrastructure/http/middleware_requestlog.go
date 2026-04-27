@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/go-chi/chi/v5/middleware"
-	"github.com/ranakdinesh/spur/internal/logger"
+	"github.com/ranakdinesh/spur-template/internal/logger"
 )
 
 func RequestLogger(log *logger.Loggerx) func(http.Handler) http.Handler {

@@ -3,7 +3,7 @@ package hls
 import (
 	"context"
 
-	"github.com/ranakdinesh/spur/internal/logger"
+	"github.com/ranakdinesh/spur-template/internal/logger"
 )
 
 type Server struct {

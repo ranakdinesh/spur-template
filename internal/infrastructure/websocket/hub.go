@@ -1,7 +1,7 @@
 package websocket
 
 import (
-	"github.com/ranakdinesh/spur/internal/logger"
+	"github.com/ranakdinesh/spur-template/internal/logger"
 )
 
 type Hub struct {

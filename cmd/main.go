@@ -7,7 +7,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/ranakdinesh/spur/internal/app"
+	"github.com/ranakdinesh/spur-template/internal/app"
 )
 
 func main() {
