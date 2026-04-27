@@ -56,6 +56,8 @@ type Config struct {
 	DBMaxConns            int32         `env:"DB_MAX_CONNS"    default:"20"`
 	TemporalHost          string        `env:"TEMPORAL_HOST"`
 	TemporalNamespace     string        `env:"TEMPORAL_NAMESPACE" default:"default"`
+
+	IdentityIssuer string `env:"IDENTITY_ISSUER"      envDefault:"http://localhost:8080"`
 }
 
 func Load(out any) error {
@@ -259,4 +261,19 @@ func LoadPrivateKey(path string) (*rsa.PrivateKey, error) {
 	}
 
 	return nil, errors.New("config: failed to parse private key (must be PKCS1 or PKCS8 RSA)")
+}
+func LoadRSAKey(path string) (*rsa.PrivateKey, error) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return nil, fmt.Errorf("read key %s: %w", path, err)
+	}
+	block, _ := pem.Decode(data)
+	if block == nil {
+		return nil, fmt.Errorf("no PEM block found in %s", path)
+	}
+	key, err := x509.ParsePKCS1PrivateKey(block.Bytes)
+	if err != nil {
+		return nil, fmt.Errorf("parse key: %w", err)
+	}
+	return key, nil
 }
