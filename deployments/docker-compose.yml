@@ -39,10 +39,10 @@ services:
 
   backend:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile.backend
     restart: unless-stopped
-    env_file: deployments/.env
+    env_file: .env
     environment:
       DATABASE_URL: postgres://${POSTGRES_USER:-spur}:${POSTGRES_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-spur}?sslmode=disable
       REDIS_URL: redis://redis:6379
@@ -50,7 +50,7 @@ services:
       - "8080:8080"
       - "9091:9091"
     volumes:
-      - ./keys:/app/keys
+      - ../keys:/app/keys:ro
     labels:
       app: spur
       module: backend
@@ -68,7 +68,7 @@ services:
 
   studio:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile.ui
       args:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8080}
