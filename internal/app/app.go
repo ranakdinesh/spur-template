@@ -47,6 +47,8 @@ func New(ctx context.Context) (*App, error) {
 
 	return &App{
 		Infra: infra,
+		// SPUR:APP_RETURN
+		// SPUR:APP_RETURN:END
 	}, nil
 }
 
