@@ -5,32 +5,34 @@ import (
 	"fmt"
 
 	"github.com/jackc/pgx/v5/pgxpool"
-	goredis "github.com/redis/go-redis/v9"
 	"github.com/ranakdinesh/spur-template/internal/config"
 	"github.com/ranakdinesh/spur-template/internal/infrastructure/db"
 	"github.com/ranakdinesh/spur-template/internal/infrastructure/grpc"
 	"github.com/ranakdinesh/spur-template/internal/infrastructure/hls"
 	httpinfra "github.com/ranakdinesh/spur-template/internal/infrastructure/http"
+	"github.com/ranakdinesh/spur-template/internal/infrastructure/messaging"
 	"github.com/ranakdinesh/spur-template/internal/infrastructure/redis"
 	"github.com/ranakdinesh/spur-template/internal/infrastructure/rtmp"
 	"github.com/ranakdinesh/spur-template/internal/infrastructure/sse"
 	"github.com/ranakdinesh/spur-template/internal/infrastructure/temporal"
 	"github.com/ranakdinesh/spur-template/internal/infrastructure/websocket"
 	"github.com/ranakdinesh/spur-template/internal/logger"
+	goredis "github.com/redis/go-redis/v9"
 )
 
 type Infra struct {
-	Config   *config.Config
-	Log      *logger.Loggerx
-	DB       *pgxpool.Pool
-	Redis    *goredis.Client
-	HTTP     *httpinfra.Server
-	Temporal *temporal.Client
-	GRPC     *grpc.Server
-	WS       *websocket.Hub
-	SSE      *sse.Broker
-	HLS      *hls.Server
-	RTMP     *rtmp.Server
+	Config    *config.Config
+	Log       *logger.Loggerx
+	DB        *pgxpool.Pool
+	Redis     *goredis.Client
+	HTTP      *httpinfra.Server
+	Temporal  *temporal.Client
+	GRPC      *grpc.Server
+	WS        *websocket.Hub
+	SSE       *sse.Broker
+	HLS       *hls.Server
+	RTMP      *rtmp.Server
+	Messaging *messaging.TolerantGateway
 }
 
 func Bootstrap(ctx context.Context, cfg *config.Config, log *logger.Loggerx) (*Infra, error) {
@@ -72,12 +74,13 @@ func Bootstrap(ctx context.Context, cfg *config.Config, log *logger.Loggerx) (*I
 	}
 
 	infra := &Infra{
-		Config:   cfg,
-		Log:      log,
-		DB:       pool,
-		Redis:    rdb,
-		HTTP:     httpServer,
-		Temporal: tc,
+		Config:    cfg,
+		Log:       log,
+		DB:        pool,
+		Redis:     rdb,
+		HTTP:      httpServer,
+		Temporal:  tc,
+		Messaging: messaging.NewTolerantGateway(messagingLogger{log: log}),
 	}
 
 	// gRPC

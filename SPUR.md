@@ -215,6 +215,7 @@ func (h *Handler) Create(w http.ResponseWriter, r *http.Request) {
 - NEVER rebuild auth, sessions, or JWT parsing
 - NEVER use fmt.Printf/Println — use opt.Log
 - NEVER call os.Exit or log.Fatal inside modules
+- NEVER assume messaging is installed. Use `infra.Messaging.TrySubmit(...)` for best-effort email, SMS, and WhatsApp dispatch. Missing messaging logs a warning and returns `configured=false`; continue the main business flow unless the notification itself is the requested operation.
 - ALWAYS return errors from constructors
 
 ---
